@@ -72,10 +72,12 @@ export default class Timer2 extends Component {
           <span>{currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds}</span>
         </div>
         {/* arrows */}
+        {onStart? (<div>
+        </div>) : (        
         <div class="timer-buttons">
           <button>+</button>
           <button>-</button>
-        </div>
+        </div>)}
         </div>
         {/* buttons */}
         {!onStart ? (
