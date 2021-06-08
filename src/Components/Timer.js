@@ -21,10 +21,10 @@ export default class Timer extends Component {
   };
 
   timestart = () => {  //starts the countdown timer
+    this.setState({isRunning: true});
     if(this.state.isRunning === false){
     this.myInterval = setInterval(() => {
-      const { currentSeconds, currentMinutes, isRunning} = this.state;
-      this.setState({isRunning: true});
+      const { currentSeconds, currentMinutes} = this.state;
       if (currentSeconds > 0) {
         this.setState(({ currentSeconds }) => ({
           currentSeconds: currentSeconds - 1,
@@ -73,7 +73,7 @@ export default class Timer extends Component {
 
   }
   render() {
-    const { minutes, seconds, currentMinutes, currentSeconds, onStart } = this.state;
+    const { minutes, seconds, currentMinutes, currentSeconds, onStart, isRunning } = this.state;
     return (
       <div style={{ textAlign: "center" }}>
         <div className="time-container">
@@ -93,8 +93,8 @@ export default class Timer extends Component {
         {onStart? (<div>
         </div>) : (        
         <div className="timer-buttons">
-          <button onClick={this.increaseMin}>+</button>
-          <button onClick={this.decreaseMin}>-</button>
+          <button className="timer-button" onClick={this.increaseMin}>+</button>
+          <button className="timer-button" onClick={this.decreaseMin}>-</button>
         </div>)}
         </div>
         {/* buttons */}
@@ -107,6 +107,8 @@ export default class Timer extends Component {
             <button className="time-button" onClick={this.timeRestart}>Restart</button>
           </div>
         )}
+        {isRunning ? <div>timer is currently running</div> : <div>timer is currently paused</div>}
+        
         </div>
     );
   }

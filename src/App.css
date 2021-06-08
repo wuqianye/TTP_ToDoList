@@ -62,6 +62,12 @@
     padding: 0px 0px 0px 10px;
 }
 
+.timer-button{
+    border: none;
+    margin: 5px;
+    font-size: 20px;
+}
+
 .new-task-button{
     border:none;
     border-radius: 50%;

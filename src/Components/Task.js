@@ -2,21 +2,20 @@ import { CCard, CCardBody, CContainer, CCol, CCardTitle, CCardText, CCardSubtitl
 import '@coreui/coreui/dist/css/coreui.min.css'
 
 
-function Task() {
+function Task(props) {
   return (
       <CContainer fluid>
         <CCard>
           <CCardBody>
             <CCardTitle>
-              Task
+             {props.title}
             </CCardTitle>
             <CCardText>
-              Description
+              {props.desc}
             </CCardText>
           </CCardBody>
         </CCard>
     </CContainer>
-
   );
 }
 
